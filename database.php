@@ -68,11 +68,25 @@ class database
     return $this->sql->execute($data);
   }
 
+  public function delete($wheres)
+  {
+    $sql = 'DELETE FROM ' . $this->table . ' ';
+    $whereList = [];
+    if ($wheres) {
+      foreach ($wheres as $key => $value)
+        $whereList[] = $key .' = :'. $key;
+      $sql .= ' WHERE ' . implode(' AND ', $whereList);
+    }
+
+    $this->sql = $this->db->prepare($sql);
+    return $this->sql->execute($wheres);
+  }
+
   public function select($wheres = [])
   {
     $whereList = [];
     foreach ($wheres as $key => $value)
-      $whereList[] = $key .'='. $value;
+      $whereList[] = "$key = '$value'";
 
     $where = '';
     if ($whereList)

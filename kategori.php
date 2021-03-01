@@ -26,14 +26,25 @@ $kategoriler = $database->table('category')->select()->all();
 	      <td scope="col"><?=$kategori->category_uniqid?></td>
 	      <td scope="col"><?=$kategori->category_name?></td>
 	      <td scope="col">
-          <a href="kategori-duzenle.php?uniqid=<?=$kategori->category_uniqid?>" class="btn btn-sm btn-warning">Düzenle</a>
-          <a href="kategori-sil.php?uniqid=<?=$kategori->category_uniqid?>" class="btn btn-sm btn-danger">Sil</a>
+          <a class="btn btn-sm btn-warning" href="kategori-duzenle.php?uniqid=<?=$kategori->category_uniqid?>">Düzenle</a>
+          <a onclick="kategori_sil('<?=$kategori->category_uniqid?>')" href="javascript:coid(0)" class="btn btn-sm btn-danger">Sil</a>
         </td>
 	    </tr>
     <?php endforeach; ?>
+    <?php else: ?>
+      <tr>
+        <td colspan="3" style="text-align:center">Kategori Bulunamadı!..</td>
+      </tr>
     <?php endif; ?>
   </tbody>
 </table>
 <?php
 require_once 'footer.php';
 ?>
+<script type="text/javascript">
+  function kategori_sil(uniqid) {
+    if (confirm('Kateogri silinecek, onaylıyor musunuz?')) {
+      window.location.href = 'kategori-sil.php?uniqid=' + uniqid;
+    }
+  }
+</script>

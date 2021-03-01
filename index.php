@@ -35,7 +35,7 @@ $urunler = $database->table('products')->select()->all();
 	      <td scope="col"><?=kategori_adi($urun->category_uniqid)?></td>
 	      <td scope="col">
 					<a href="urun-duzenle.php?uniqid=<?=$urun->uniqid?>" class="btn btn-sm btn-warning">Düzenle</a>
-          <a href="urun-sil.php?uniqid=<?=$urun->uniqid?>" class="btn btn-sm btn-danger">Sil</a>
+          <a onclick="urun_sil('<?=$urun->uniqid?>')" href="javascript:void(0)" class="btn btn-sm btn-danger">Sil</a>
 				</td>
 	    </tr>
     <?php endforeach; ?>
@@ -45,3 +45,10 @@ $urunler = $database->table('products')->select()->all();
 <?php
 require_once 'footer.php';
 ?>
+<script type="text/javascript">
+  function urun_sil(uniqid) {
+    if (confirm('Ürün silinecek, onaylıyor musunuz?')) {
+      window.location.href = 'urun-sil.php?uniqid=' + uniqid;
+    }
+  }
+</script>
