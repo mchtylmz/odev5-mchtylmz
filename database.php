@@ -111,5 +111,7 @@ class database
     return count($this->sql->fetchAll(PDO::FETCH_OBJ));
   }
 
+  
+
 }
 ?>

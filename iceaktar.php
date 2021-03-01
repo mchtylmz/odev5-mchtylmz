@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 ?>
-<hr>
+
 <?php if (isset($_GET["msg"])): ?>
   <div class="alert alert-secondary"><?=$_GET["msg"]?></div>
   <hr>
@@ -74,7 +74,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <button type="submit" class="btn btn-primary">İçe Aktar</button>
 </form>
 
-<hr>
 <?php
 require_once 'footer.php';
 ?>

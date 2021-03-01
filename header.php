@@ -1,5 +1,4 @@
-<?php
-require_once 'functions.php'; ?>
+<?php require_once 'functions.php'; ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -32,11 +31,9 @@ require_once 'functions.php'; ?>
   		        <a class="nav-link text-white" href="disaaktar.php">Dışa Aktar</a>
   		      </li>
   		    </ul>
-
   		  </div>
   	  </div>
   	</nav>
   </header>
-
 	<main role="main" style="margin-top: 60px;">
 	  <div class="container">

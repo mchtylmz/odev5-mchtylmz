@@ -1,5 +1,4 @@
 <?php
-
 require_once 'functions.php';
 $database = new database();
 $export = [];
@@ -23,5 +22,3 @@ if ($products) {
 header("Content-Type: application/json");
 header("Content-Disposition: attachment; filename=products.json");
 echo json_encode($export);
-
-?>
